@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photos - L H Jewellers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffaf5;
+      display: flex;
+      cursor: none;
+    }
+    .sidebar {
+      width: 210px;
+      background-color: #7b3f00;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 80px;
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+	
+     .sidebar a {
+      text-decoration: none;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      transition: background 0.5s, color 0.5s;
+    }
+    .sidebar a:hover {
+      background: white;
+      color: #7b3f00;
+      border-radius: 0 30px 30px 0;
+      transform: scale(1.05);
+    }
+    .main {
+      margin-left: 240px;
+      padding: 40px;
+      width: 100%;
+    }
+    h2 {
+      color: #7b3f00;
+	  
+	.filter-buttons {
+      margin-bottom: 10px; /* Increased space between buttons and images */
+      display: flex;
+      gap: 10px;
+    }
+
+
+    }
+    .filter-buttons button {
+      background-color: #7b3f00;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 20px;
+      margin-right: 180px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .filter-buttons button:hover {
+      background-color: #FAF0E6;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, opacity 0.3s;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.08);
+      opacity: 0.9;
+    }
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      display: none;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+    .cursor-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(123, 63, 0, 0.8);
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out;
+      box-shadow: 0 0 12px rgba(123, 63, 0, 0.4);
+    }
+	body {
+    cursor: none; /* hide default cursor */
+  }
+  /* Logo toggle button */
+.logo-toggle {
+  position: fixed;
+  top: 10px;
+  left: 25px;
+  z-index: 9999;
+  cursor: pointer;
+  background:none;
+  border-radius:none;
+  padding: 6px;
+  box-shadow:none;
+}
+.logo-toggle img {
+  width: 150px;
+  height: auto;
+}
+
+.sidebar {
+  width: 220px;
+  transition: all 0.3s ease;
+}
+.sidebar.hidden {
+  display: none;
+}
+
+.main {
+  margin-left: 240px;
+  transition: all 0.3s ease;
+}
+.full-width {
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+  .rotating-bg {
+  position: fixed;
+  top: 40%;
+  left: 70%;
+  width: 800px; /* adjust size as needed */
+  height: 800px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 100; /* faint background look */
+  animation: spin 60s linear infinite;
+}
+	@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+	.rotating-bg1 {
+	position: fixed;
+	top: -40%;
+	left: -30%;
+	width: 1000px; /* adjust size as needed */
+	height: 1000px;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	opacity: 100; /* faint background look */
+	animation: spin 60s linear infinite;
+	
+  </style>
+</head>
+<body>
+
+<img src="rotate.png" alt="Rotating Background" class="rotating-bg" />
+<img src="rotate1.png" alt="Rotating Background" class="rotating-bg1" />
+
+  <div class="logo-toggle" onclick="toggleSidebar()">
+  <img src="logoo.png" alt="Logo" />
+</div>
+<div class="sidebar">
+  
+  <a href="dashboard.html"><b>🏠</b> Home</a>
+  <a href="men.html"><b>👨</b> Men</a>
+  <a href="women.html"><b>👩</b> Women</a>
+  <div style="margin-top: 550px; font-size: 10px; text-align: center;">© 2025 L H Jewellers. All rights reserved.</div>
+  </div>
+
+  <main class="main">
+    <h2>Design Gallery</h2>
+    <div class="filter-buttons">
+      <button onclick="filterGallery('all')">All</button><button onclick="filterGallery('gold')">Gold</button><button onclick="filterGallery('silver')">Silver</button>
+      
+      
+	  <h2></h2>
+	  
+    </div>
+	
+    <div class="gallery">
+      <img src="images/image.jpg" alt="Design 1" data-category="gold">
+        <img src="images/4199c2e3-a806-46e9-8c18-e7f83be8c38b.jpeg" alt="Design 2" data-category="silver">
+        <img src="images/img2.jpeg" alt="Design 3" data-category="gold">
+        <img src="images/d1.jpeg" alt="Design 4" data-category="silver">
+		
+		<img src="images/d3.jpeg" alt="Design 5" data-category="gold">
+        <img src="images/d4.jpeg" alt="Design 6" data-category="silver">
+        <img src="images/d5.jpeg" alt="Design 7" data-category="gold">
+        <img src="images/d6.jpeg" alt="Design 8" data-category="silver">
+		<img src="images/d7.jpeg" alt="Design 9" data-category="gold">
+        <img src="images/d8.jpeg" alt="Design 10" data-category="silver">
+    </div>
+  </main>
+  <div class="lightbox" id="lightbox"><img src="" alt="Preview"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <script>
+function toggleSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  const main = document.querySelector('.main');
+
+  sidebar.classList.toggle('hidden');
+  main.classList.toggle('full-width');
+}
+</script>
+  <script>
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+    lightbox.addEventListener('click', () => { lightbox.style.display = 'none'; });
+    function filterGallery(category) {
+      const images = document.querySelectorAll('.gallery img');
+      images.forEach(img => {
+        const match = img.dataset.category === category || category === 'all';
+        img.style.display = match ? 'block' : 'none';
+      });
+    }
+	const cursor = document.getElementById('cursorDot');
+	
+    document.addEventListener('mousemove', (e) => {
+            cursor.style.top = e.clientY + 'px';
+      cursor.style.left = e.clientX + 'px';
+    });
+  </script>
+</body>
+</html>

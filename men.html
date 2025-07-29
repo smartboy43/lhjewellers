@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Men's Collection - L H Jewellers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffaf6;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background-color: #7b3f00;
+      color: white;
+      height: 100vh;
+      padding: 25px 15px;
+      box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 25px;
+      color: #ffe3c6;
+      text-align: center;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #a35f25;
+      transform: translateX(5px);
+    }
+
+    /* Main content */
+    .main {
+      margin-left: 240px;
+      padding: 40px 30px;
+      flex: 1;
+    }
+
+    .main h2 {
+      color: #7b3f00;
+      margin-bottom: 25px;
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .item-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .item-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .item-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .item-card h4 {
+      margin: 15px 0;
+      font-size: 18px;
+      color: #7b3f00;
+    }
+	
+	.rotating-bg {
+  position: fixed;
+  top: 40%;
+  left: 70%;
+  width: 800px; /* adjust size as needed */
+  height: 800px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 100; /* faint background look */
+  animation: spin 60s linear infinite;
+}
+	@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+	.rotating-bg1 {
+	position: fixed;
+	top: -40%;
+	left: -30%;
+	width: 1000px; /* adjust size as needed */
+	height: 1000px;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	opacity: 100; /* faint background look */
+	animation: spin 60s linear infinite;
+	
+  </style>
+</head>
+<body>
+
+<img src="rotate.png" alt="Rotating Background" class="rotating-bg" />
+<img src="rotate1.png" alt="Rotating Background" class="rotating-bg1" />
+
+  <div class="sidebar">
+    <h2>Men's Styles</h2>
+    <div style="margin-top: 680px; font-size: 10px; text-align: center;">© 2025 L H Jewellers. All rights reserved.</div>
+  </div>
+
+  <div class="main">
+    <h2>Men's Collection</h2>
+    <div class="collection-grid">
+      <div class="item-card" id="ring">
+        <img src="images/m1.jpeg" alt="Gold Ring">
+        <h4>Gold Ring</h4>
+      </div>
+      <div class="item-card" id="chain">
+        <img src="images/m2.jpeg" alt="Men's Chain">
+        <h4>Heavy Chain</h4>
+      </div>
+      <div class="item-card" id="pendant">
+        <img src="images/m3.jpeg" alt="Pendant">
+        <h4>Gold Pendant</h4>
+      </div>
+      <div class="item-card" id="kada">
+        <img src="images/m5.jpeg" alt="Kada">
+        <h4>Stylish Kada</h4>
+      </div>
+      <div class="item-card" id="bracelet">
+        <img src="images/m4.jpeg" alt="Bracelet">
+        <h4>Men's Bracelet</h4>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

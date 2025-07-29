@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Place Order - L H Jewellers</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffaf5;
+      display: flex;
+      cursor: none;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #7b3f00;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 40px;
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      padding: 16px 24px;
+      display: block;
+      transition: background 0.3s, transform 0.2s ease;
+    }
+
+    .sidebar a:hover {
+      background: white;
+      color: #7b3f00;
+      border-radius: 0 30px 30px 0;
+      transform: scale(1.05);
+    }
+
+    .main {
+      margin-left: 240px;
+      padding: 40px;
+      width: 100%;
+    }
+
+    h2 {
+      color: #7b3f00;
+      margin-bottom: 30px;
+    }
+
+    form {
+      background: #fff4e6;
+      padding: 30px;
+      border-radius: 16px;
+      max-width: 600px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #7b3f00;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #5c2e00;
+    }
+
+    .cursor-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(123, 63, 0, 0.8);
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out;
+      box-shadow: 0 0 12px rgba(123, 63, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <a href="dashboard.html">🏠 Dashboard</a>
+   <div style="margin-top: 660px; font-size: 10px; text-align: center;">© 2025 L H Jewellers. All rights reserved.</div>
+
+  <main class="main">
+    <h2>Place Your Order</h2>
+    <form>
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="text" name="address" placeholder="Full Address" required>
+      <select name="product">
+        <option value="" disabled selected>Select Product</option>
+        <option value="gold_ring">Gold Ring</option>
+        <option value="silver_chain">Silver Chain</option>
+        <option value="custom">Custom Jewellery</option>
+      </select>
+      <input type="number" name="quantity" placeholder="Quantity" min="1" required>
+      <textarea name="note" placeholder="Any customization notes..."></textarea>
+      <button type="submit">Submit Order</button>
+    </form>
+  </main>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <script>
+    document.addEventListener('mousemove', (e) => {
+      const cursor = document.getElementById('cursorDot');
+      cursor.style.top = e.clientY + 'px';
+      cursor.style.left = e.clientX + 'px';
+    });
+  </script>
+</body>
+</html>

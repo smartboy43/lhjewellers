@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blogs - L H Jewellers</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffaf5;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #7b3f00;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 40px;
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      padding: 16px 24px;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: white;
+      color: #7b3f00;
+      border-radius: 0 30px 30px 0;
+    }
+
+    .main {
+      margin-left: 240px;
+      padding: 40px;
+      width: 100%;
+    }
+
+    h2 {
+      color: #7b3f00;
+      margin-bottom: 30px;
+    }
+
+    .blog-post {
+      background: #fff4e6;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-left: 6px solid #7b3f00;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-post h3 {
+      color: #7b3f00;
+      margin-top: 0;
+    }
+
+    .blog-post p {
+      margin: 10px 0 0;
+      color: #333;
+      line-height: 1.5;
+    }
+	.cursor-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(123, 63, 0, 0.8); /* LH brown glow */
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+    box-shadow: 0 0 12px rgba(123, 63, 0, 0.4);
+  }
+
+  body {
+    cursor: none; /* hide default cursor */
+  }
+  
+  .rotating-bg {
+  position: fixed;
+  top: 40%;
+  left: 70%;
+  width: 800px; /* adjust size as needed */
+  height: 800px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 100; /* faint background look */
+  animation: spin 60s linear infinite;
+}
+	@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+	.rotating-bg1 {
+	position: fixed;
+	top: -40%;
+	left: -30%;
+	width: 1000px; /* adjust size as needed */
+	height: 1000px;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	opacity: 100; /* faint background look */
+	animation: spin 60s linear infinite;
+  
+  </style>
+</head>
+<body>
+
+<img src="rotate.png" alt="Rotating Background" class="rotating-bg" />
+<img src="rotate1.png" alt="Rotating Background" class="rotating-bg1" />
+
+  <div class="sidebar">
+    <a href="dashboard.html"><b>🏠</b> Home</a>
+	<div style="margin-top: 660px; font-size: 10px; text-align: center;">© 2025 L H Jewellers. All rights reserved.</div>
+    
+  </div>
+
+  <main class="main">
+    <h2>Latest Blog Posts</h2>
+
+    <div class="blog-post">
+      <h3>How to Choose Gold Jewellery for Weddings</h3>
+      <p>Discover expert tips and current bridal trends including temple designs, kundan sets, antique finishes, and how to match them with wedding outfits.</p>
+    </div>
+
+    <div class="blog-post">
+      <h3>Top Silver Gift Ideas for Festivals</h3>
+      <p>Explore a curated list of elegant silver items for festive gifting — from handcrafted coins to modern utility silverware and idol sets.</p>
+    </div>
+
+    <div class="blog-post">
+      <h3>Jewellery Care Tips to Make It Last Forever</h3>
+      <p>Learn how to clean, store, and handle gold and silver jewellery to preserve shine, avoid tarnish, and extend life.</p>
+    </div>
+
+    <div class="blog-post">
+      <h3>Why Handmade Jewellery is Always in Trend</h3>
+      <p>Understand the craftsmanship, uniqueness, and value of handmade pieces and why they continue to be a customer favorite.</p>
+    </div>
+
+  </main>
+  
+<div class="cursor-dot" id="cursorDot"></div>
+
+<script>
+  const cursor = document.getElementById('cursorDot');
+
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.top = e.clientY + 'px';
+    cursor.style.left = e.clientX + 'px';
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Add Customer - L H Jewellers</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #7b3f00;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px;
+      border: 2px solid #7b3f00;
+      border-radius: 15px;
+      background-color: #fff6ef;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    input[type="file"] {
+      border: none;
+    }
+
+    button {
+      background-color: #7b3f00;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #5e2f00;
+    }
+
+    .preview-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 10px auto;
+      display: block;
+      border: 2px solid #7b3f00;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Create Profile</h2>
+  <form id="customerForm">
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" name="fullName" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email">
+
+    <label for="address">Address</label>
+    <textarea id="address" name="address" rows="3" required></textarea>
+
+    <label for="profilePic">Upload Profile Picture</label>
+    <input type="file" id="profilePic" name="profilePic" accept="image/*" capture="environment" required>
+    <img id="preview" class="preview-img" style="display: none;" />
+
+    <button type="submit">Create Account</button>
+  </form>
+
+  <script>
+    // Preview and save data
+    const profilePicInput = document.getElementById('profilePic');
+    const preview = document.getElementById('preview');
+
+    profilePicInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+      }
+    });
+
+    document.getElementById('customerForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('fullName').value;
+      const phone = document.getElementById('phone').value;
+      const file = document.getElementById('profilePic').files[0];
+
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        localStorage.setItem('customerName', name);
+        localStorage.setItem('customerPhone', phone);
+        localStorage.setItem('customerImage', event.target.result);
+
+        alert('Customer added successfully!');
+        window.location.href = "dashboard.html";
+      };
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+
+</body>
+</html>

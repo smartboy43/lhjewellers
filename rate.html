@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>L H Jewellers - Rate Card</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#7b3f00" />
+  <style>
+    
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffaf5;
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #7b3f00;
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
+
+    .rate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .rate-card {
+      background: linear-gradient(to bottom, #fff7ec, #fef1dd);
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .rate-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .rate-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #7b3f00;
+      margin-bottom: 10px;
+    }
+
+    .rate-value {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+      color: #000;
+    }
+
+    .gst-value {
+      font-size: 1rem;
+      color: #7b3f00;
+    }
+
+    @media (max-width: 600px) {
+      .rate-card {
+        padding: 20px;
+      }
+
+      .rate-title {
+        font-size: 1.2rem;
+      }
+
+      .rate-value {
+        font-size: 1.1rem;
+      }
+    }
+	
+	.rotate-top-right {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  width: 1000px;
+  height: 1000px;
+  opacity: 100;
+  z-index: -9999; /* push far behind all UI */
+  pointer-events: none; /* never clickable */
+  animation: slowSpin 80s linear infinite;
+}
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.rotate-top-right1 {
+  position: fixed;
+  top: 0;
+  right: -20%;
+  width: 1000px;
+  height: 1000px;
+  opacity: 100;
+  z-index: -9999; /* push far behind all UI */
+  pointer-events: none; /* never clickable */
+  animation: slowSpin 80s linear infinite;
+}
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+  </style>
+</head>
+<body>
+
+<img src="rotate.png" alt="Decorative Rotation" class="rotate-top-right">
+<img src="rotate1.png" alt="Decorative Rotation" class="rotate-top-right1">
+
+  <h2> Today's Live Rates 10/gm</h2>
+
+  <div class="rate-grid">
+    <div class="rate-card">
+      <div class="rate-title">Gold 22K</div>
+      <div class="rate-value">₹ <span id="goldRateView">--</span></div>
+      <div class="gst-value">+ GST: <span id="goldGstView">--</span>%</div>
+    </div>
+
+    <div class="rate-card">
+      <div class="rate-title">Gold 20K</div>
+      <div class="rate-value">₹ <span id="goldRateView20k">--</span></div>
+      <div class="gst-value">+ GST: <span id="goldGstView20k">--</span>%</div>
+    </div>
+
+    <div class="rate-card">
+      <div class="rate-title">Gold 18K</div>
+      <div class="rate-value">₹ <span id="goldRateView18k">--</span></div>
+      <div class="gst-value">+ GST: <span id="goldGstView18k">--</span>%</div>
+    </div>
+
+    <div class="rate-card">
+      <div class="rate-title">Silver</div>
+      <div class="rate-value">₹ <span id="silverRateView">--</span></div>
+      <div class="gst-value">GST: <span id="silverGstView">--</span>%</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("goldRateView").innerText = localStorage.getItem("goldRate") || "--";
+    document.getElementById("goldGstView").innerText = localStorage.getItem("goldGst") || "--";
+
+    document.getElementById("goldRateView20k").innerText = localStorage.getItem("goldRate20k") || "--";
+    document.getElementById("goldGstView20k").innerText = localStorage.getItem("goldGst20k") || "--";
+
+    document.getElementById("goldRateView18k").innerText = localStorage.getItem("goldRate18k") || "--";
+    document.getElementById("goldGstView18k").innerText = localStorage.getItem("goldGst18k") || "--";
+
+    document.getElementById("silverRateView").innerText = localStorage.getItem("silverRate") || "--";
+    document.getElementById("silverGstView").innerText = localStorage.getItem("silverGst") || "--";
+  </script>
+
+</body>
+</html>

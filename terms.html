@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms & Conditions - L H Jewellers</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdf8f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .terms-container {
+      background-color: #fff;
+      border: 2px solid #7b3f00;
+      border-radius: 15px;
+      padding: 40px;
+      max-width: 700px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+    h1 {
+      color: #7b3f00;
+      margin-bottom: 20px;
+    }
+    p {
+      color: #333;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+	
+	.rotating-bg {
+  position: fixed;
+  top: 40%;
+  left: 70%;
+  width: 800px; /* adjust size as needed */
+  height: 800px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 100; /* faint background look */
+  animation: spin 60s linear infinite;
+}
+	@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+	.rotating-bg1 {
+	position: fixed;
+	top: -40%;
+	left: -30%;
+	width: 1000px; /* adjust size as needed */
+	height: 1000px;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	opacity: 100; /* faint background look */
+	animation: spin 60s linear infinite;
+	
+  </style>
+</head>
+<body>
+
+<img src="rotate.png" alt="Rotating Background" class="rotating-bg" />
+<img src="rotate1.png" alt="Rotating Background" class="rotating-bg1" />
+
+  <div class="terms-container">
+    <h1>Terms & Conditions</h1>
+    <p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p>
+    <p>All products, designs, and content on this website remain the property of L H Jewellers and may not be copied or reused without permission.</p>
+    <p>We reserve the right to modify these terms at any time.</p>
+  </div>
+</body>
+</html>

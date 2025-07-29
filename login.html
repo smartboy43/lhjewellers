@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - L H Jewellers</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background:ffffff;
+      background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .overlay {
+      background: ;
+      height: 100vh;
+      width: 100vw;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-modal {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.8s ease;
+      color: #333;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .login-modal h2 {
+      margin: 0 0 20px;
+      text-align: center;
+      color: #7b3f00;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+      color: #444;
+    }
+
+    input[type="text"] {
+      width: 95%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #7b3f00;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #5c2e00;
+    }
+
+    #otpForm {
+      display: none;
+    }
+	@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.rotating-bg {
+  position: fixed;
+  top: 40%;
+  left: 70%;
+  width: 800px; /* adjust size as needed */
+  height: 800px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 100; /* faint background look */
+  animation: spin 60s linear infinite;
+}
+	@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+	.rotating-bg1 {
+	position: fixed;
+	top: -40%;
+	left: -30%;
+	width: 1000px; /* adjust size as needed */
+	height: 1000px;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	opacity: 100; /* faint background look */
+	animation: spin 60s linear infinite;
+	
+  </style>
+</head>
+<body>
+
+<img src="rotate.png" alt="Rotating Background" class="rotating-bg" />
+<img src="rotate1.png" alt="Rotating Background" class="rotating-bg1" />
+
+  <div class="overlay">
+    <div class="login-modal">
+      <h2>Login</h2>
+
+      <form id="loginForm">
+        <label for="phone">Enter Phone Number</label>
+        <input type="text" name="phone" id="phone" placeholder="10-digit number" required />
+        <button type="submit">Send OTP</button>
+      </form>
+
+      <form id="otpForm">
+        <label for="otp">Enter OTP</label>
+        <input type="text" name="otp" id="otp" placeholder="6-digit code" required />
+        <button type="submit">Verify OTP</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const otpForm = document.getElementById('otpForm');
+
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      loginForm.style.display = 'none';
+      otpForm.style.display = 'block';
+    });
+
+    otpForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Redirect or verify logic here
+      window.location.href = "dashboard.html";
+    });
+  </script>
+</body>
+</html>
